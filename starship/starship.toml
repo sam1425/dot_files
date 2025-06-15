@@ -4,8 +4,7 @@ format = """
 [](color_orange)\
 $os\
 [ ](fg:color_orange bg:color_bg1)\
-[](fg:color_aqua bg:color_bg1 )\
-\
+[](fg:color_bg1 bg:color_aqua)\
 $directory\
 [](fg:color_aqua bg:color_blue)\
 $git_branch\
@@ -14,10 +13,8 @@ $git_status\
 $c\
 $rust\
 $golang\
-$nodejs\
 $php\
 $java\
-$kotlin\
 $haskell\
 $python\
 [](fg:color_blue2 bg:color_bg3)\
@@ -37,7 +34,7 @@ color_bg1 = '#3c3836'
 color_bg3 = '#665c54'
 color_blue = '#458588'
 color_blue2 = '#076678'
-color_aqua = '#689d6a'
+color_aqua = '#68936f'
 color_green = '#98971a'
 color_orange = '#d65d0e'
 color_purple = '#b16286'
@@ -46,7 +43,7 @@ color_yellow = '#d79921'
 
 [os]
 disabled = false
-style = "bg:color_orange fg:color_fg"
+style = "bg:color_orange fg:color_fg0"
 
 [os.symbols]
 Windows = "󰍲"
@@ -78,36 +75,31 @@ style_root = "bg:color_orange fg:color_fg0"
 format = '[ $user ]($style)'
 
 [directory]
-style = "fg:color_fg0 bg:color_aqua"
+style = "fg:#000000 bg:color_aqua"
 format = "[ $path ]($style)"
 truncation_length = 50
-truncation_symbol = "◦/"
+truncation_symbol = "*/"
 
 [directory.substitutions]
 "Documents" = "🖹"
 "Downloads" = "⇩"
 "Music" = "♪♫"
 "Pictures" = "🖻"
-"Developer" = "⋈"
+"Developer" = "⦓⋈"
 
 [git_branch]
-symbol = ""
+symbol = "ⵖ"
 style = "bg:color_aqua"
-format = '[[ $symbol $branch ](fg:color_fg0 bg:color_blue)]($style)'
+format = '[[ $branch $symbol ](fg:color_fg0 bg:color_blue)]($style)'
 
 [git_status]
 style = "bg:color_aqua"
 format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_blue)]($style)'
 
-[nodejs]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
 [c]
 symbol = " "
 style = "bg:color_blue2"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue2)]($style)'
+format = '[[ $symbol](fg:color_fg0 bg:color_blue2)]($style)'
 
 [rust]
 symbol = ""
@@ -129,11 +121,6 @@ symbol = ""
 style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
-[kotlin]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
 [haskell]
 symbol = ""
 style = "bg:color_blue"
@@ -149,24 +136,20 @@ symbol = ""
 style = "bg:color_bg3"
 format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
 
-[conda]
-style = "bg:color_bg3"
-format = '[[ $symbol( $environment) ](fg:#83a598 bg:color_bg3)]($style)'
-
 [time]
 disabled = false
 time_format = "%R"
 style = "bg:color_bg1"
-format = '[[ $time ](fg:color_fg0 bg:color_bg1)]($style)'
+format = '[[ $time](fg:color_fg0 bg:color_bg1)]($style)'
 
 [line_break]
-disabled = false
+disabled = true
 
 [character]
 disabled = false
-success_symbol = '[ ❯](bold fg:color_purple)'
+success_symbol = '[ ❯](bold fg:color_fg0)'
 error_symbol = '[ ❯](bold fg:color_red)'
-vimcmd_symbol = '[ ❮](bold fg:color_green)'
+vimcmd_symbol = '[ ❮](bold fg:color_bg1)'
 vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
 vimcmd_replace_symbol = '[](bold fg:color_purple)'
 vimcmd_visual_symbol = '[](bold fg:color_yellow)'
