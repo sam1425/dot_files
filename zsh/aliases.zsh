@@ -1,8 +1,12 @@
 ##
 ## Aliases
 ##
+#especific for c development
+alias makec='clang -o exe'
 #especific for monogame engine
 alias mgcb_editor='dotnet mgcb-editor Content/Content.mgcb'
+alias bgr='feh --bg-scale "$(find ~/Pictures/wallpaper -type f | shuf -n1)"'
+alias icat='kitten icat'
 
 alias run='pnpm run'
 alias clear="printf '\033[2J\033[3J\033[1;1H'"
@@ -13,8 +17,7 @@ alias trim_all="sudo fstrim -va"
 alias mkgrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias mtar='tar -zcvf' # mtar <archive_compress>
 alias utar='tar -zxvf' # utar <archive_decompress> <file_list>
-alias z='zip -r' # z <archive_compress> <file_list>
-alias uz='unzip' # uz <archive_decompress> -d <dir>
+alias zip='zip -r' # z <archive_compress> <file_list>
 alias sr='source ~/.config/zsh/env.zsh'
 alias ..="cd .."
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
@@ -44,7 +47,7 @@ alias cat="bat --color always --plain"
 alias grep='grep --color=auto'
 alias mv='mv -v'
 alias cp='cp -vr'
-alias rm='rm -vr'
+##alias rm='rm -vr'
 alias commit="git add . && git commit -m"
 alias push="git push"
 alias git-rm="git ls-files --deleted -z | xargs -0 git rm"

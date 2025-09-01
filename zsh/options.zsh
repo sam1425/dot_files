@@ -77,6 +77,15 @@ EQUALS
 EOF
 
 command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
+
+# fnm manager for versining (node.js)
+FNM_PATH="/home/c0mplex/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/c0mplex/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
+
+
 eval "$(fnm env --use-on-cd)" 
 
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)

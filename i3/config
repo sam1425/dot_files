@@ -1,22 +1,25 @@
-
 ##### i3-gaps ##############
-gaps inner 20
+gaps inner 8
 gaps outer 1
-#gaps horizontal 2
+gaps horizontal 2
 
 ################# i3-radius #######################
 smart_borders on
 smart_borders no_gaps
 # border_radius 2
 
-exec --no-startup-id i3bar
+
+# Set wallpaper
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/254.jpg
+
+exec_always --no-startup-id xrandr --output eDP-1 --mode 1368x768
 
 #######
 #THEME#
 #######
 
 # set primary gruvbox colorscheme colors
-set $bg #282828
+set $bg #1d2021
 set $red #cc241d
 set $green #98971a
 set $yellow #ffffff
@@ -27,14 +30,15 @@ set $gray #a89984
 set $darkgray #1d2021
 
 bar {
-    position top
-    height 30
-    padding 0 22px 0 22px
-    font pango:Monaspace Argon Var VF 14
+    position bottom
+    height 20
+    padding 0 8px 0 8px
+   workspace_buttons yes
+   strip_workspace_numbers no
+   font pango:Pixellari Medium 20
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    tray_output none
     colors {
-        # bar background color
+       # bar background color
         background $bg
         # text color used for blocks that do not have a color specified.
         statusline $yellow
@@ -46,6 +50,14 @@ bar {
         urgent_workspace     $red $red $bg
     }
 }
+
+
+#polybar: kill and start
+#exec_always --no-startup-id bash -c "pkill polybar; polybar topbar & polybar bottombar &"
+#exec_always --no-startup-id polybar topbar &
+#exec_always --no-startup-id polybar bottombar &
+
+
 
 # green gruvbox
 # class                 border|backgr|text|indicator|child_border
@@ -75,12 +87,11 @@ for_window [class=".*"] border pixel 0
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+#clipboard manager
+exec --no-startup-id clipmenud
 
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -88,15 +99,17 @@ set $refresh_i3status killall -SIGUSR1 i3status
 #start picom
 exec_always --no-startup-id picom
 
+exec --no-startup-id xset -dpms
+exec --no-startup-id xset s off
+exec --no-startup-id xset s noblank
+
 # Media player controls
-bindsym XF86AudioMute --release exec pkill -RTMIN+1 i3blocks
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume --release exec pkill -RTMIN+1 i3blocks
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioRaiseVolume --release exec pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
-# Sreen brightness controls
+bindsym $mod+Shift+z exec --no-startup-id xset dpms force off
+
 exec --no-startup-id xsetroot -cursor_name Bibata-Modern-Clasic
 
 # Media player controls
@@ -107,7 +120,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # launch flameshot gui on print key
-bindsym Print exec --no-startup-id flameshot gui
+bindsym $mod+Shift+s exec --no-startup-id flameshot gui
 
 #brightness
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
@@ -121,17 +134,25 @@ tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec kitty
+bindsym $mod+Shift+Return exec alacritty
 bindsym $mod+t exec kitty --class "kitty-floating"
 
 # kill focused window
 bindsym $mod+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-7/launcher.sh
+bindsym $mod+d exec dmenu_run -i  \
+-fn 'Poppins:size=18' -nb '#141c21' -nf '#93a1a1' \
+-sb '#289c93' -sf '#141c21'
 
-bindsym $mod+s exec i3-dmenu-desktop --dmenu="dmenu -i  \
+bindsym $mod+s exec --no-startup-id ~/.config/rofi/launchers/type-7/launcher.sh
+bindsym $mod+a exec i3-dmenu-desktop --dmenu="dmenu -i  \
 -fn 'Poppins:size=18' -nb '#141c21' -nf '#93a1a1' \
 -sb '#289c93' -sf '#141c21'"
+
+bindsym $mod+v exec --no-startup-id clipmenu -i \
+-fn 'Poppins:size=18' -nb '#141c21' -nf '#93a1a1' \
+-sb '#289c93' -sf '#141c21'
 
 # start powermenu
 bindsym $mod+BackSpace exec --no-startup-id ~/.config/i3/powermenu/powermenu.sh
@@ -141,6 +162,9 @@ bindsym $mod+Shift+h focus left
 bindsym $mod+Shift+j focus down
 bindsym $mod+Shift+k focus up
 bindsym $mod+Shift+l focus right
+
+#togle picom
+bindsym $mod+p exec bash -c 'pgrep -x picom && pkill picom || picom --experimental-backends -b'
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -164,7 +188,7 @@ bindsym $mod+Shift+Right move right
 #bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+#bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -180,32 +204,32 @@ bindsym $mod+space floating toggle
 bindsym $mod+Shift+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
 
 #set workspace
-set $ws1 "1  I"
-set $ws2 "2  II"
-set $ws3 "3  III"
-set $ws4 "4  IV"
-set $ws5 "5  V"
-set $ws6 "6  VI"
-set $ws7 "7  VII"
-set $ws8 "8  VIII"
-set $ws9 "9  IX"
-set $ws10 "10  X"
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+set $ws1 " I "
+set $ws2 "I I"
+set $ws3 "III"
+set $ws4 "I V"
+set $ws5 " V "
+set $ws6 "VI "
+set $ws7 "VII"
+set $ws8 "VIII"
+set $ws9 "IX"
+set $ws10 "X"
+bindsym $mod+1 workspace --no-auto-back-and-forth $ws1
+bindsym $mod+2 workspace --no-auto-back-and-forth $ws2
+bindsym $mod+3 workspace --no-auto-back-and-forth $ws3
+bindsym $mod+4 workspace --no-auto-back-and-forth $ws4
+bindsym $mod+5 workspace --no-auto-back-and-forth $ws5
+bindsym $mod+6 workspace --no-auto-back-and-forth $ws6
+bindsym $mod+7 workspace --no-auto-back-and-forth $ws7
+bindsym $mod+8 workspace --no-auto-back-and-forth $ws8
+bindsym $mod+9 workspace --no-auto-back-and-forth $ws9
+bindsym $mod+0 workspace --no-auto-back-and-forth $ws10
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
@@ -220,12 +244,18 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+l workspace next
 bindsym $mod+h workspace prev
 
+# Apps always open in specific workspaces
+assign [class="kitty"] $ws1
+assign [class="Firefox"] $ws2
+assign [class="code"] $ws3
+assign [class="discord"] $ws4
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+Return exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you want to exit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you want to exit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window
 bindsym $mod+w mode "resize"
@@ -256,9 +286,11 @@ for_window [class="Nemo"] floating enable
 for_window [class="Gnome-terminal"] floating enable
 for_window [class="1Password"] floating enable
 for_window [instance="kitty-floating"] floating enable, resize set 800 600
+for_window [class="pavucontrol"] floating enable, resize set 600 400
+for_window [class="Godot_Engine"] floating enable
+for_window [class="hot_potatoe"] floating enable
 
-# Set wallpaper
-exec_always --no-startup-id feh --bg-scale "$(find ~/Pictures/Wallpapers -type f | shuf -n1)"
+
 
 # xinput list
 # exec --no-startup-id xinput set-prop 10 "libinput Natural Scrolling Enabled" 1
@@ -268,5 +300,8 @@ exec_always --no-startup-id feh --bg-scale "$(find ~/Pictures/Wallpapers -type f
 
 # include scripts
 # exec_always --no-startup-id ~/.config/i3/scripts/dynamic_workspaces.py
-exec_always --no-startup-id ~/.config/i3/scripts/improve_tiling.py
+# exec_always --no-startup-id ~/.config/i3/scripts/improve_tiling.py
+exec --no-startup-id i3-msg "workspace $ws1; exec kitty"
+exec --no-startup-id i3-msg "workspace $ws2; exec firefox"
+exec --no-startup-id i3-msg "workspace $ws3; exec subl"
 

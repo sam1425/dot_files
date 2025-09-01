@@ -1,9 +1,10 @@
 "$schema" = 'https://starship.rs/config-schema.json'
-
+add_newline = false
 format = """
 [](color_orange)\
 $os\
 [ ](fg:color_orange bg:color_bg1)\
+$username\
 [](fg:color_bg1 bg:color_aqua)\
 $directory\
 [](fg:color_aqua bg:color_blue)\
@@ -59,8 +60,8 @@ Fedora = "󰣛"
 Alpine = ""
 Amazon = ""
 Android = ""
-Arch = "󰣇"
-Artix = "󰣇"
+Arch = "Φ"
+Artix = ""
 EndeavourOS = ""
 CentOS = ""
 Debian = "󰣚"
@@ -70,12 +71,12 @@ Pop = ""
 
 [username]
 show_always = true
-style_user = "bg:color_orange fg:color_fg0"
-style_root = "bg:color_orange fg:color_fg0"
-format = '[ $user ]($style)'
+style_user = "bg:color_bg1 fg:color_fg0"
+style_root = "bg:color_bg1 fg:color_fg0"
+format = '[$user ]($style)'
 
 [directory]
-style = "fg:#000000 bg:color_aqua"
+style = "bold fg:#000000 bg:color_aqua"
 format = "[ $path ]($style)"
 truncation_length = 50
 truncation_symbol = "*/"
