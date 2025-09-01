@@ -305,3 +305,18 @@ exec --no-startup-id i3-msg "workspace $ws1; exec kitty"
 exec --no-startup-id i3-msg "workspace $ws2; exec firefox"
 exec --no-startup-id i3-msg "workspace $ws3; exec subl"
 
+# Laptop specific:
+# exec_always --no-startup-id ~/.config/i3/scripts/dynamic_workspaces.py
+exec_always --no-startup-id ~/.config/i3/scripts/improve_tiling.py
+
+# Rotate screen normal (default)
+#bindsym $mod+Ctrl+n exec --no-startup-id xrandr --output eDP-1 --rotate normal
+
+# Rotate screen left (for tablet mode)
+#bindsym $mod+Ctrl+l exec --no-startup-id xrandr --output eDP-1 --rotate left
+
+# Rotate screen right
+#bindsym $mod+Ctrl+r exec --no-startup-id xrandr --output eDP-1 --rotate right
+
+# Rotate screen upside down
+#bindsym $mod+Ctrl+u exec --no-startup-id xrandr --output eDP-1 --rotate inverted

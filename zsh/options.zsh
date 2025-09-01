@@ -89,6 +89,6 @@ fi
 eval "$(fnm env --use-on-cd)" 
 
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)
-bindkey -e
+bindkey -v
 
 # vim:filetype=zsh:nowrap
