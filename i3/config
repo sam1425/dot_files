@@ -74,7 +74,7 @@ client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
 client.urgent           $red $red $white $red $red
 
 
-set $mod Mod4
+set $mod Mod1
 
 #set font
 font pango:monospace 8
