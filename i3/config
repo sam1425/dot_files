@@ -10,7 +10,7 @@ smart_borders no_gaps
 
 
 # Set wallpaper
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/254.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/184.jpg
 
 exec_always --no-startup-id xrandr --output eDP-1 --mode 1368x768
 
@@ -31,7 +31,7 @@ set $darkgray #1d2021
 
 bar {
     position bottom
-    height 20
+    height 10
     padding 0 8px 0 8px
    workspace_buttons yes
    strip_workspace_numbers no
