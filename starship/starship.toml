@@ -82,11 +82,14 @@ truncation_length = 50
 truncation_symbol = "*/"
 
 [directory.substitutions]
-"Documents" = "🖹"
+"Documents" = "🗃️"
 "Downloads" = "⇩"
 "Music" = "♪♫"
 "Pictures" = "🖻"
-"Developer" = "⦓⋈"
+"PROGRAMMING" = "<code>"
+"c" = "C"
+"cpp" = "c++"
+"lua" = "LUA"
 
 [git_branch]
 symbol = "ⵖ"

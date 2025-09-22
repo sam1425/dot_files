@@ -1,4 +1,4 @@
-##### i3-gaps ##############
+# i3-gaps 
 gaps inner 8
 gaps outer 1
 gaps horizontal 2
@@ -12,6 +12,10 @@ smart_borders no_gaps
 # Set wallpaper
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/184.jpg
 
+# Set Cursor
+exec --no-startup-id xsetroot -cursor_name Bibata-Modern-Clasic
+
+# Set display resolution
 exec_always --no-startup-id xrandr --output eDP-1 --mode 1368x768
 
 #######
@@ -32,7 +36,7 @@ set $darkgray #1d2021
 bar {
     position bottom
     height 10
-    padding 0 8px 0 8px
+    padding 4px 8px 0px 8px
    workspace_buttons yes
    strip_workspace_numbers no
    font pango:Pixellari Medium 20
@@ -74,14 +78,13 @@ client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
 client.urgent           $red $red $white $red $red
 
 
-set $mod Mod4
+set $mod Mod1
 
 #set font
 font pango:monospace 8
 
 #font pango:DejaVu Sans Mono 8
 for_window [class=".*"] border pixel 0
-
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -104,13 +107,15 @@ exec --no-startup-id xset s off
 exec --no-startup-id xset s noblank
 
 # Media player controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+# Decrease volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+# Toggle mute
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
+#Set screen off
 bindsym $mod+Shift+z exec --no-startup-id xset dpms force off
 
-exec --no-startup-id xsetroot -cursor_name Bibata-Modern-Clasic
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -141,7 +146,7 @@ bindsym $mod+t exec kitty --class "kitty-floating"
 bindsym $mod+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec dmenu_run -i  \
+bindsym $mod+d exec --no-startup-id dmenu_run -i  \
 -fn 'Poppins:size=18' -nb '#141c21' -nf '#93a1a1' \
 -sb '#289c93' -sf '#141c21'
 
