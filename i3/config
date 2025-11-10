@@ -1,7 +1,7 @@
 # i3-gaps 
-gaps inner 8
-gaps outer 1
-gaps horizontal 2
+gaps inner 0
+gaps outer 0
+gaps horizontal 0
 
 ################# i3-radius #######################
 smart_borders on
@@ -10,19 +10,12 @@ smart_borders no_gaps
 
 
 # Set wallpaper
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/184.jpg
-
+exec_always --no-startup-id feh --bg-scale --randomize ~/Pictures/wallpaper/
 # Set Cursor
 exec --no-startup-id xsetroot -cursor_name Bibata-Modern-Clasic
-
 # Set display resolution
 exec_always --no-startup-id xrandr --output eDP-1 --mode 1368x768
 
-#######
-#THEME#
-#######
-
-# set primary gruvbox colorscheme colors
 set $bg #1d2021
 set $red #cc241d
 set $green #98971a
@@ -36,10 +29,10 @@ set $darkgray #1d2021
 bar {
     position bottom
     height 10
-    padding 4px 8px 0px 8px
+    padding 0px 8px 0px 8px
    workspace_buttons yes
    strip_workspace_numbers no
-   font pango:Pixellari Medium 20
+   font pango:Pixellari Medium 14
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
     colors {
        # bar background color
@@ -82,18 +75,16 @@ set $mod Mod1
 
 #set font
 font pango:monospace 8
-
 #font pango:DejaVu Sans Mono 8
-for_window [class=".*"] border pixel 0
 
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
+
+# Start XDG autostart .desktop files using dex
 exec --no-startup-id dex --autostart --environment i3
 
 #clipboard manager
 exec --no-startup-id clipmenud
 
-# and nm-applet is a desktop environment-independent system tray GUI for it.
+# Network Manager gui
 # exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
@@ -106,16 +97,8 @@ exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
 exec --no-startup-id xset s noblank
 
-# Media player controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-# Decrease volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-# Toggle mute
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-
 #Set screen off
 bindsym $mod+Shift+z exec --no-startup-id xset dpms force off
-
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -123,18 +106,19 @@ bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioStop exec playerctl stop
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-# launch flameshot gui on print key
+# Screenshot:
 bindsym $mod+Shift+s exec --no-startup-id flameshot gui
 
 #brightness
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 
-# Use Mouse+$mod to drag floating windows to their wanted position
+# Use Mouse+$mod to drag floating windows 
 floating_modifier $mod
-
-# move tiling windows via drag & drop,
 tiling_drag modifier titlebar
 
 # start a terminal
@@ -145,22 +129,25 @@ bindsym $mod+t exec kitty --class "kitty-floating"
 # kill focused window
 bindsym $mod+q kill
 
-# start rofi (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -i  \
--fn 'Poppins:size=18' -nb '#141c21' -nf '#93a1a1' \
+# Start Program Launcher
+bindsym $mod+d exec --no-startup-id dmenu_run -i -b \
+-fn 'Poppins:size=12' -nb '#141c21' -nf '#93a1a1' \
 -sb '#289c93' -sf '#141c21'
 
-bindsym $mod+s exec --no-startup-id ~/.config/rofi/launchers/type-7/launcher.sh
-bindsym $mod+a exec i3-dmenu-desktop --dmenu="dmenu -i  \
--fn 'Poppins:size=18' -nb '#141c21' -nf '#93a1a1' \
+bindsym $mod+s exec --no-startup-id ~/.config/rofijlaunchers/type-7/launcher.sh
+bindsym $mod+r exec i3-dmenu-desktop --dmenu="dmenu -i -b \
+-fn 'Poppins:size=12' -nb '#141c21' -nf '#93a1a1' \
 -sb '#289c93' -sf '#141c21'"
 
-bindsym $mod+v exec --no-startup-id clipmenu -i \
--fn 'Poppins:size=18' -nb '#141c21' -nf '#93a1a1' \
+bindsym $mod+v exec --no-startup-id clipmenu -i -b \
+-fn 'Poppins:size=12' -nb '#141c21' -nf '#93a1a1' \
 -sb '#289c93' -sf '#141c21'
 
 # start powermenu
 bindsym $mod+BackSpace exec --no-startup-id ~/.config/i3/powermenu/powermenu.sh
+
+# Bar toggle
+bindsym $mod+b bar mode toggle
 
 # change focus
 bindsym $mod+Shift+h focus left
@@ -251,9 +238,12 @@ bindsym $mod+h workspace prev
 
 # Apps always open in specific workspaces
 assign [class="kitty"] $ws1
-assign [class="Firefox"] $ws2
-assign [class="code"] $ws3
-assign [class="discord"] $ws4
+assign [class="Sublime_text"] $ws2
+assign [class="sublime_text"] $ws2
+assign [class="sublime_text_startup"] 2
+assign [class="Firefox"] $ws3
+assign [class="obsidian"] $ws3
+assign [class="discord"] $ws5
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -295,33 +285,24 @@ for_window [class="pavucontrol"] floating enable, resize set 600 400
 for_window [class="Godot_Engine"] floating enable
 for_window [class="hot_potatoe"] floating enable
 
-
-
-# xinput list
-# exec --no-startup-id xinput set-prop 10 "libinput Natural Scrolling Enabled" 1
-
-# set tap touchpad to click
-# exec --no-startup-id xinput set-prop 10 "libinput Tapping Enabled" 1
-
-# include scripts
-# exec_always --no-startup-id ~/.config/i3/scripts/dynamic_workspaces.py
-# exec_always --no-startup-id ~/.config/i3/scripts/improve_tiling.py
 exec --no-startup-id i3-msg "workspace $ws1; exec kitty"
 exec --no-startup-id i3-msg "workspace $ws2; exec firefox"
 exec --no-startup-id i3-msg "workspace $ws3; exec subl"
-
-# Laptop specific:
-# exec_always --no-startup-id ~/.config/i3/scripts/dynamic_workspaces.py
+exec --no-startup-id i3-msg "workspace $ws4; exec obsidian"
+exec_always --no-startup-id ~/.config/i3/scripts/dynamic_workspaces_with_roman_numbers.py
 exec_always --no-startup-id ~/.config/i3/scripts/improve_tiling.py
 
+
+# Laptop specific:
+# xinput list
+# exec --no-startup-id xinput set-prop 10 "libinput Natural Scrolling Enabled" 1
+# set tap touchpad to click
+# exec --no-startup-id xinput set-prop 10 "libinput Tapping Enabled" 1
 # Rotate screen normal (default)
 #bindsym $mod+Ctrl+n exec --no-startup-id xrandr --output eDP-1 --rotate normal
-
 # Rotate screen left (for tablet mode)
 #bindsym $mod+Ctrl+l exec --no-startup-id xrandr --output eDP-1 --rotate left
-
 # Rotate screen right
 #bindsym $mod+Ctrl+r exec --no-startup-id xrandr --output eDP-1 --rotate right
-
 # Rotate screen upside down
 #bindsym $mod+Ctrl+u exec --no-startup-id xrandr --output eDP-1 --rotate inverted

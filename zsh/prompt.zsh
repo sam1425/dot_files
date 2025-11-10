@@ -100,4 +100,6 @@ zinit ice as'command' from'gh-r' \
   atpull'%atclone' src'init.zsh'
 zinit light starship/starship
 
+fortune | cowsay -f ~/Pictures/Ascii_art/cat.cow
+
 # vim:ft=zsh

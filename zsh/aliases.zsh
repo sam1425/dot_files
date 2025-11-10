@@ -51,4 +51,8 @@ alias run='pnpm run'
 alias trim_all="sudo fstrim -va"
 #git specific:
 alias gitaliases= 'source "~/.config/zsh/specific/gitaliases.zsh"'
+
+#Miscelaneous:
+alias copy="xclip -selection clipboard -i"
+
 # vim:ft=zsh

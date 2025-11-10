@@ -1,7 +1,7 @@
 ##
 ## PATH & ENV Var
 ##
-
+export COWPATH="$COWPATH:$HOME/.cowsay/cowfiles"
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$HOME/.spicetify:$PATH"
 export PATH="$PNPM_HOME:$PATH"
