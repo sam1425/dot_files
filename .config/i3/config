@@ -5,7 +5,7 @@ gaps horizontal 0
 
 ################# i3-radius #######################
 smart_borders on
-smart_borders no_gaps
+#smart_borders no_gaps
 # border_radius 2
 
 

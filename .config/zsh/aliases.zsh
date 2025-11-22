@@ -54,5 +54,6 @@ alias gitaliases= 'source "~/.config/zsh/specific/gitaliases.zsh"'
 
 #Miscelaneous:
 alias copy="xclip -selection clipboard -i"
+alias compresspdf="gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=compressed.pdf"
 
 # vim:ft=zsh
