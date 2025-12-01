@@ -8,10 +8,10 @@ ROMAN_NUMERALS_SPACED = [
     "III",
     "I V",
     " V ",
-    "VI",
+    "V I",
     "VII",
     "VIII",
-    "I X",
+    "IX",
     " X "
 ]
 

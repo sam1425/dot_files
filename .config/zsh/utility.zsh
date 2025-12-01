@@ -10,6 +10,7 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
 function _smooth_fzf() {
   local fname
   local current_dir="$PWD"

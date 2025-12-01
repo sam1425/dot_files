@@ -55,7 +55,6 @@ bar {
 #exec_always --no-startup-id polybar bottombar &
 
 
-
 # green gruvbox
 # class                 border|backgr|text|indicator|child_border
 #client.focused          $green $green $darkgray $purple $darkgray
@@ -83,6 +82,9 @@ exec --no-startup-id dex --autostart --environment i3
 
 #clipboard manager
 exec --no-startup-id clipmenud
+
+#notifications
+exec_always --no-startup-id dunst &
 
 # Network Manager gui
 # exec --no-startup-id nm-applet
@@ -207,7 +209,7 @@ set $ws2 "I I"
 set $ws3 "III"
 set $ws4 "I V"
 set $ws5 " V "
-set $ws6 "VI "
+set $ws6 "V I"
 set $ws7 "VII"
 set $ws8 "VIII"
 set $ws9 "IX"

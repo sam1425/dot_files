@@ -1,6 +1,14 @@
-##
-## PATH & ENV Var
-##
+#  ░████▒   ██░████   ██▒  ▒██
+# ░██████▒  ███████▓  ▓██  ██▓
+# ██▒  ▒██  ███  ▒██  ▒██  ██▒
+# ████████  ██    ██   ██░░██
+# ████████  ██    ██   ██▒▒██
+# ██        ██    ██   ▒████▒
+# ███░  ▒█  ██    ██    ████
+# ░███████  ██    ██    ████
+#  ░█████▒  ██    ██    ▒██▒
+# PATH & ENV Var
+
 export COWPATH="$COWPATH:$HOME/.cowsay/cowfiles"
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$HOME/.spicetify:$PATH"
