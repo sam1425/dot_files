@@ -4,7 +4,7 @@
 ##
 ## sam's edit from rxyhn's Z-Shell configuration
 ## https://www.reddit.com/r/unixporn/comments/uxpydc/awesome_rxyhns_workflow/
-## https://github.com/J-HaleOf76/rxyhn-dotfiles
+## https://github.com/raexera/yoru/tree/main/misc/home
 
 while read file
 do 
