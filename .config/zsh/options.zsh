@@ -26,6 +26,15 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 # switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
+## case insensitive path-completion
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+
+# fix becaue compinit is very slow
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
+
 
 # History
 HISTFILE="$XDG_CACHE_HOME/zsh/.zhistory"
@@ -54,8 +63,8 @@ NOHUP
 MAILWARN
 INTERACTIVE_COMMENTS
 NOBEEP
+CORRECT
 APPEND_HISTORY
-SHARE_HISTORY
 INC_APPEND_HISTORY
 EXTENDED_HISTORY
 HIST_IGNORE_ALL_DUPS
@@ -71,22 +80,21 @@ do
   unsetopt $opt
 done <<-EOF
 FLOWCONTROL
+SHARE_HISTORY
 NOMATCH
-CORRECT
 EQUALS
 EOF
 
 command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 
 # fnm manager for versining (node.js)
-FNM_PATH="/home/c0mplex/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="/home/c0mplex/.local/share/fnm:$PATH"
-  eval "`fnm env`"
-fi
+#FNM_PATH="/home/c0mplex/.local/share/fnm"
+#if [ -d "$FNM_PATH" ]; then
+#  export PATH="/home/c0mplex/.local/share/fnm:$PATH"
+#  eval "`fnm env`"
+#fi
 
-
-eval "$(fnm env --use-on-cd)" 
+#eval "$(fnm env --use-on-cd)" 
 
 
 # vim:filetype=zsh:nowrap
