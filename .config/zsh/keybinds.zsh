@@ -14,8 +14,8 @@ bindkey -M viins '' _sudo_command_line
 
 # fix backspace and other stuff in vi-mode
 bindkey -M viins '\e/' _vi_search_fix
-bindkey "^?" backward-delete-char
-bindkey "^H" backward-delete-char
+#bindkey "^?" backward-delete-char
+#bindkey "^H" backward-delete-char
 bindkey "^U" backward-kill-line
 # binds
 bindkey "^a" beginning-of-line

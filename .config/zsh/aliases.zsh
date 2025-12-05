@@ -10,8 +10,9 @@ alias icat='kitten icat'
 
 #Useful:
 alias clear="printf '\033[2J\033[3J\033[1;1H'"
-alias c="c"
+alias c="clear"
 alias q="exit"
+alias o='xdg-open'
 alias grep='grep --color=auto'
 alias cleanram="sudo sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'"
 alias mktar='tar -zcvf' # mktar <archive_compress>
@@ -47,9 +48,9 @@ alias mv='mv -v'
 alias cp='cp -vr'
 alias rmvr='rm -vr'
 #Not so useful: 
-alias mkgrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-alias run='pnpm run'
-alias trim_all="sudo fstrim -va"
+#alias mkgrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+#alias run='pnpm run'
+#alias trim_all="sudo fstrim -va"
 #git specific:
 alias gitaliases='source "~/.config/zsh/specific/gitaliases.zsh"'
 #Miscelaneous:
