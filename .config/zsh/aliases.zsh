@@ -7,6 +7,7 @@ alias mgcb_editor='dotnet mgcb-editor Content/Content.mgcb'
 #platform specific:
 alias bgr='feh --bg-scale "$(find ~/Pictures/wallpaper -type f | shuf -n1)"'
 alias icat='kitten icat'
+alias lynx='lynx -vikeys'
 
 #Useful:
 alias clear="printf '\033[2J\033[3J\033[1;1H'"
@@ -15,8 +16,8 @@ alias q="exit"
 alias o='xdg-open'
 alias grep='grep --color=auto'
 alias cleanram="sudo sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'"
-alias mktar='tar -zcvf' # mktar <archive_compress>
-alias untar='tar -zxvf' # untar <archive_decompress> <file_list>
+alias mktar='tar zcvf' # mktar <archive_compress>
+alias untar='tar zxvf' # untar <archive_decompress> <file_list>
 alias zp='zip -r' # z <archive_compress> <file_list>
 alias sr='source ~/.config/zsh/env.zsh'
 alias ..="cd .."
