@@ -113,7 +113,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Screenshot:
-bindsym $mod+Shift+s exec --no-startup-id flameshot gui
+bindsym $mod+Shift+s exec --no-startup-id ~/Documents/PROGRAMMING/bash/scripts/images-photos-wallpapers/screenshot
 
 #brightness
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
@@ -242,9 +242,13 @@ bindsym $mod+h workspace prev
 assign [class="kitty"] $ws1
 assign [class="Sublime_text"] $ws2
 assign [class="sublime_text"] $ws2
-assign [class="sublime_text_startup"] 2
+assign [class="sublime"] $ws2
+assign [instance="sublime_text"] $ws2
+assign [instance="Sublime_text"] $ws2
+assign [instance="sublime"] $ws2
+assign [class="sublime_text_startup"] $ws2
 assign [class="Firefox"] $ws3
-assign [class="obsidian"] $ws3
+assign [class="obsidian"] $ws4
 assign [class="discord"] $ws5
 
 # reload the configuration file
@@ -278,6 +282,7 @@ mode "resize" {
 for_window [class=".*"] border pixel 0
 
 # Exclude from tiling
+for_window [instance="sublime_text"] move to workspace $ws2
 for_window [class="Nautilus"] floating enable
 for_window [class="Nemo"] floating enable
 for_window [class="Gnome-terminal"] floating enable
@@ -288,8 +293,8 @@ for_window [class="Godot_Engine"] floating enable
 for_window [class="hot_potatoe"] floating enable
 
 exec --no-startup-id i3-msg "workspace $ws1; exec kitty"
-exec --no-startup-id i3-msg "workspace $ws2; exec firefox"
-exec --no-startup-id i3-msg "workspace $ws3; exec subl"
+exec --no-startup-id i3-msg "workspace $ws2; exec subl"
+exec --no-startup-id i3-msg "workspace $ws3; exec firefox"
 exec --no-startup-id i3-msg "workspace $ws4; exec obsidian"
 exec_always --no-startup-id ~/.config/i3/scripts/dynamic_workspaces_with_roman_numbers.py
 exec_always --no-startup-id ~/.config/i3/scripts/improve_tiling.py

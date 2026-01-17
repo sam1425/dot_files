@@ -8,6 +8,7 @@ alias mgcb_editor='dotnet mgcb-editor Content/Content.mgcb'
 alias bgr='feh --bg-scale "$(find ~/Pictures/wallpaper -type f | shuf -n1)"'
 alias icat='kitten icat'
 alias lynx='lynx -vikeys'
+alias Prompt='PROMPT="%~ % "'
 
 #Useful:
 alias clear="printf '\033[2J\033[3J\033[1;1H'"
