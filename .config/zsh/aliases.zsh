@@ -9,6 +9,9 @@ alias bgr='feh --bg-scale "$(find ~/Pictures/wallpaper -type f | shuf -n1)"'
 alias icat='kitten icat'
 alias lynx='lynx -vikeys'
 alias Prompt='PROMPT="%~ % "'
+alias emacst='emacsclient -a ''"'
+alias emacs="emacsclient -n -a ''"
+export PASTEL_COLOR_MODE=24bit
 
 #Useful:
 alias clear="printf '\033[2J\033[3J\033[1;1H'"

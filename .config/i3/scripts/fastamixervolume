@@ -1,0 +1,3 @@
+
+#!/bin/sh
+amixer -D pulse get Master | awk -F'[][]' '/%/ {if ($6 == "off") {print "muted"} else {print $2}; exit}'

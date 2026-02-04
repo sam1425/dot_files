@@ -1,0 +1,3 @@
+#!/bin/sh
+# pamixer is faster at returning a clean string than awk-ing amixer output
+pamixer --get-volume-human

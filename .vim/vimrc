@@ -1,48 +1,56 @@
-" plugins
-"
-autocmd BufEnter * if &filetype == "go" | setlocal noexpandtab
-autocmd BufNewFile,BufRead ?\+.c3 setf c
-
-map gf :e <cfile><CR>
-"map <leader>D :execute 'normal! a' . strftime('(%Y%m%d-%H%M%S)')<CR>
-map <leader>D :execute 'normal! a' . system('date -u "+(%Y%m%d-%H%M%S)"')<CR>
-
+" ======================
+"        Plugins
+" ======================
 call plug#begin()
 
 Plug 'tribela/vim-transparent'
 Plug 'morhetz/gruvbox'
 Plug 'plasticboy/vim-markdown'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
 
 syntax on
 filetype plugin indent on
+set nocursorline
+set nocursorcolumn
 set number
 set tabstop=4
+"set linespace=4
 set shiftwidth=4
+set softtabstop=4
 set expandtab
-set guioptions-=m
-set guioptions-=T
-set guifont=Comic\ Mono:h14:#e-subpixelantialias
 set clipboard=unnamedplus
-set noesckeys
+"set noesckeys
+set nowrap
 set ignorecase
 set smartcase
 set incsearch
 set cinoptions=l1
-set modeline
-set iminsert=0
-set imsearch=0
+"set modeline
 set autoindent
 set autochdir
-
 set termguicolors
-
 set background=dark
+
+set signcolumn=yes
+set updatetime=300
+
+set list
+set listchars=tab:\ \ ,trail:·
+
+set norelativenumber
+
+" =========================
+" Buffer-local options
+" =========================
+setlocal fileformat=unix
+
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_transparent_bg = 1
-let g:gruvbox_termcolors = 256
 colorscheme gruvbox
+
 
 "Markdown
 let g:vim_markdown_folding_disabled = 0   " enable folding
@@ -67,49 +75,6 @@ let mapleader=" "
 let g:c_syntax_for_h = 1
 
 " =========================
-" UI / Editing
-" =========================
-set number
-set norelativenumber
-set ignorecase
-set incsearch
-set guicursor=a:block
-set linespace=4
-
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
-
-set signcolumn=yes
-set nowrap
-set updatetime=300
-
-set fileformat=unix
-set fileformats=unix,dos
-
-set list
-set listchars=tab:\ \ ,trail:·
-
-" =========================
-" Buffer-local options
-" =========================
-setlocal fileformat=unix
-
-" =========================
-" Diagnostics (Neovim-only)
-" =========================
-" Vim does NOT have vim.diagnostic
-" You need a plugin like ALE or coc.nvim
-" This section has no native Vim equivalent
-
-" =========================
-" Loader (Neovim-only)
-" =========================
-" vim.loader.enable() has NO Vim equivalent
-" Safe to remove in Vim
-
-" =========================
 " Disable default plugins
 " =========================
 let g:loaded_netrw       = 1
@@ -123,5 +88,26 @@ let g:loaded_tutor      = 1
 let g:loaded_tohtml     = 1
 let g:loaded_rplugin    = 1
 
-set fillchars=eob:\ 
+let g:highlightedyank_highlight_duration = 100
+highlight HighlightedyankRegion ctermbg=0 guibg=#8ec07c
 
+
+autocmd BufEnter * if &filetype == "go" | setlocal noexpandtab
+autocmd BufNewFile,BufRead ?\+.c3 setf c
+
+nnoremap gf :e <cfile><CR>
+nnoremap <leader>D a<C-R>=strftime("(%Y%m%d-%H%M%S)")<CR><Esc>
+
+if !has('gui_running')
+    " Fixes the Esc delay in terminal
+    set ttimeoutlen=10
+    " Cursor shapes for st/xterm
+    let &t_EI = "\<Esc>[2 q" " Normal
+    let &t_SI = "\<Esc>[6 q" " Insert
+    let &t_SR = "\<Esc>[4 q" " Replace
+endif
+
+let g:VM_maps = {}
+let g:VM_maps['Exit'] = '<Esc>'
+
+set fillchars=eob:\ 

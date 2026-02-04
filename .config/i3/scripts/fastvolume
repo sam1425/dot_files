@@ -1,0 +1,5 @@
+#!/bin/sh
+wpctl get-volume @DEFAULT_AUDIO_SINK@ 2>/dev/null \
+| awk '/MUTED/ {print "muted"; exit}
+       {printf "%.0f\n", $2 * 100}'
+

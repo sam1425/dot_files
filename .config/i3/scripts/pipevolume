@@ -1,0 +1,14 @@
+#!/bin/sh
+
+out=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ 2>/dev/null) || {
+  echo "0"
+  exit
+}
+
+if echo "$out" | grep -q MUTED; then
+  echo "muted"
+  exit
+fi
+
+vol=$(echo "$out" | awk '{printf "%.0f\n", $2 * 100}')
+[ -n "$vol" ] && echo "$vol" || echo "0"
