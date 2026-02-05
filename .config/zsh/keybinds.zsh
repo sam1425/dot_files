@@ -57,7 +57,7 @@ bindkey '^R' fzf-history-widget
 #bindkey "^J" history-search-forward
 #bindkey "^K" history-search-backward
 
-bindkey -s '^K' 'ls^M'
+#bindkey -s '^K' 'ls^M'
 
 # fix backspace and other stuff in vi-mode
 bindkey -M viins '\e/' _vi_search_fix

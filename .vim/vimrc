@@ -8,8 +8,21 @@ Plug 'morhetz/gruvbox'
 Plug 'plasticboy/vim-markdown'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'machakann/vim-highlightedyank'
+Plug 'cofyc/vim-uncrustify'
 
 call plug#end()
+
+augroup uncrustify_maps
+  autocmd!
+  autocmd FileType c   nnoremap <buffer> <C-f> :call Uncrustify('c')<CR>
+  autocmd FileType c   vnoremap <buffer> <C-f> :call RangeUncrustify('c')<CR>
+  autocmd FileType cpp nnoremap <buffer> <C-f> :call Uncrustify('cpp')<CR>
+  autocmd FileType cpp vnoremap <buffer> <C-f> :call RangeUncrustify('cpp')<CR>
+augroup END
+
+let g:uncrustify_config_path = expand('~/.config/uncrustify/uncrustify.cfg')
+let g:uncrustify_lang_c   = 'c'
+let g:uncrustify_lang_cpp = 'cpp'
 
 syntax on
 filetype plugin indent on
