@@ -11,13 +11,11 @@ alias lynx='lynx -vikeys'
 alias Prompt='PROMPT="%~ % "'
 alias emacst='emacsclient -a ''"'
 alias emacs="emacsclient -n -a ''"
-export PASTEL_COLOR_MODE=24bit
 
 #Useful:
-alias clear="printf '\033[2J\033[3J\033[1;1H'"
-alias c="clear"
+alias c="printf '\033[2J\033[3J\033[1;1H'"
 alias q="exit"
-alias o='xdg-open'
+alias open='xdg-open'
 alias grep='grep --color=auto'
 alias cleanram="sudo sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'"
 alias mktar='tar zcvf' # mktar <archive_compress>
@@ -56,6 +54,7 @@ alias rmvr='rm -vr'
 #alias mkgrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 #alias run='pnpm run'
 #alias trim_all="sudo fstrim -va"
+
 #git specific:
 alias gitaliases='source "~/.config/zsh/specific/gitaliases.zsh"'
 #Miscelaneous:
