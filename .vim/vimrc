@@ -54,6 +54,8 @@ set list
 set listchars=tab:\ \ ,trail:·
 
 set norelativenumber
+set undofile
+set undodir=~/.vim/tmp/
 
 " =========================
 " Buffer-local options
@@ -112,9 +114,7 @@ nnoremap gf :e <cfile><CR>
 nnoremap <leader>D a<C-R>=strftime("(%Y%m%d-%H%M%S)")<CR><Esc>
 
 if !has('gui_running')
-    " Fixes the Esc delay in terminal
     set ttimeoutlen=10
-    " Cursor shapes for st/xterm
     let &t_EI = "\<Esc>[2 q" " Normal
     let &t_SI = "\<Esc>[6 q" " Insert
     let &t_SR = "\<Esc>[4 q" " Replace

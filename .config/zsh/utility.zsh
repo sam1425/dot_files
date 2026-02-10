@@ -128,4 +128,12 @@ function git-svn(){
   fi
 }
 
+# Smart clear function
+cls() {
+    if [[ "$TERM" == "st"* ]]; then
+        printf "\033c"
+    else
+        printf "\033[2J\033[3J\033[H"
+    fi
+}
 # vim:ft=sh
