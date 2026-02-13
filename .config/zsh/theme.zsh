@@ -1,40 +1,51 @@
 ##
-## Aesthetic Night Colorscheme
+## Gruvbox Material Dark
 ##
 # special
-background='#1E1E2E'
-foreground='#CDD6F4'
+background='#282828'
+foreground='#D4BE98'
 
 # black
-color0='#45475A'
-color8='#585B70'
+color0='#32302F'
+color8='#928374'
 
 # red
-color1='#F38BA8'
-color9='#F38BA8'
+color1='#EA6962'
+color9='#EA6962'
 
 # green
-color2='#A6E3A1'
-color10='#A6E3A1'
+color2='#A9B665'
+color10='#A9B665'
 
 # yellow
-color3='#F9E2AF'
-color11='#F9E2AF'
+color3='#D8A657'
+color11='#D8A657'
 
 # blue
-color4='#89B4FA'
-color12='#89B4FA'
+color4='#7DAEA3'
+color12='#7DAEA3'
 
 # magenta
-color5='#F5C2E7'
-color13='#F5C2E7'
+color5='#D3869B'
+color13='#D3869B'
 
 # cyan
-color6='#94E2D5'
-color14='#94E2D5'
+color6='#89B482'
+color14='#89B482'
 
 # white
-color7='#BAC2DE'
-color15='#A6ADC8'
-
-# vim='iletype'=zsh
+color7='#D4BE98'
+color15='#DDA592'
+FAST_HIGHLIGHT_STYLES+=(
+  'command'        'fg=#A9B665'
+  'alias'          'fg=#A9B665'
+  'builtin'        'fg=#A9B665'
+  'function'       'fg=#A9B665'
+  'keyword'        'fg=#D3869B'
+  'string'         'fg=#D8A657'
+  'single-quoted-argument' 'fg=#D8A657'
+  'double-quoted-argument' 'fg=#D8A657'
+  'path'           'fg=#7DAEA3'
+  'comment'        'fg=#928374,italic'
+)
+#vim:filetype=zsh

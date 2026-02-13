@@ -1,2 +1,10 @@
 Xcursor.theme: Bibata-Modern-Classic
-Xcursor.size: 18
+Xcursor.size:   18
+Xft.antialias:	1
+Xft.hinting:	1
+Xft.autohint:	0
+Xft.hintstyle:	hintslight
+Xft.lcdfilter:	lcddefault
+Xft.rgba:	    rgb
+Emacs.background: #111314
+Emacs.foreground: #ebdbb2

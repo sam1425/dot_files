@@ -17,12 +17,13 @@ export PATH="$HOME/.scripts:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export GPG_TTY="${TTY:-$(tty)}"
+export GOPATH=$HOME/Documents/Programming/go/pkg/
 
 export SUDO_PROMPT="passwd: "
 export TERMINAL="kitty"
 export BROWSER="firefox"
-export VISUAL="nvim"
-export EDITOR="nvim"
+export VISUAL="vim"
+export EDITOR="vim"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"

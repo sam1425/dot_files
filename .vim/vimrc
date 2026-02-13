@@ -103,6 +103,7 @@ let g:loaded_tutor      = 1
 let g:loaded_tohtml     = 1
 let g:loaded_rplugin    = 1
 
+let g:undolevels = 1000
 let g:highlightedyank_highlight_duration = 100
 highlight HighlightedyankRegion ctermbg=0 guibg=#8ec07c
 
@@ -110,6 +111,9 @@ highlight HighlightedyankRegion ctermbg=0 guibg=#8ec07c
 autocmd BufEnter * if &filetype == "go" | setlocal noexpandtab
 autocmd BufNewFile,BufRead ?\+.c3 setf c
 
+
+nnoremap ^ &
+nnoremap & ^
 nnoremap gf :e <cfile><CR>
 nnoremap <leader>D a<C-R>=strftime("(%Y%m%d-%H%M%S)")<CR><Esc>
 

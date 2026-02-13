@@ -2,10 +2,9 @@
 ## Plugins
 ##
 
-# Configure and load plugins using Zinit's
+# Plugins using Zinit's
 ZINIT_HOME="${ZINIT_HOME:-${XDG_DATA_HOME:-${HOME}/.local/share}/zinit}"
-
-# Added by Zinit's installer
+# Zinit's installer
 if [[ ! -f ${ZINIT_HOME}/zinit.git/zinit.zsh ]]; then
     print -P "%F{14}▓▒░ Installing Flexible and fast ZSH plugin manager %F{13}(zinit)%f"
     command mkdir -p "${ZINIT_HOME}" && command chmod g-rwX "${ZINIT_HOME}"
@@ -24,7 +23,6 @@ compinit
 
 zinit light-mode for \
   hlissner/zsh-autopair \
-  zdharma-continuum/fast-syntax-highlighting \
   MichaelAquilina/zsh-you-should-use \
   zsh-users/zsh-autosuggestions \
   Aloxaf/fzf-tab
@@ -101,4 +99,6 @@ function man \
   colored $0 "$@"
 }
 
+#load syntax highlight at last to avoid race conditions
+zinit light zdharma-continuum/fast-syntax-highlighting
 # vim:ft=zsh
