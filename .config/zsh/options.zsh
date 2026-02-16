@@ -2,7 +2,6 @@
 ## ZSH Options
 ##
 
-
 umask 022
 zmodload zsh/zle
 zmodload zsh/zpty
