@@ -61,9 +61,9 @@ add-zsh-hook precmd prompt_starship_precmd
 add-zsh-hook preexec prompt_starship_preexec
 
 # Set up a function to redraw the prompt if the user switches vi modes
-starship_zle-keymap-select() {
-    zle reset-prompt
-}
+#starship_zle-keymap-select() {
+    #zle reset-prompt
+#}
 
 ## Check for existing keymap-select widget.
 # zle-keymap-select is a special widget so it'll be "user:fnName" or nothing. Let's get fnName only.

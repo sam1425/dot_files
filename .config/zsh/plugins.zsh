@@ -45,6 +45,9 @@ zinit light eza-community/eza
 zinit ice wait lucid from"gh-r" as"program" mv"*/bat -> bat" atload"export BAT_THEME='Nord'"
 zinit light sharkdp/bat
 
+# ZSH-VI
+zinit light jeffreytse/zsh-vi-mode
+
 # Requires colors autoload.
 # See termcap(5).
 

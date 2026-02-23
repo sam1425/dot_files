@@ -7,7 +7,6 @@ zmodload zsh/zle
 zmodload zsh/zpty
 zmodload zsh/complist
 
-autoload -U select-word-style && select-word-style bash
 autoload _vi_search_fix
 autoload -Uz colors
 autoload -U compinit

@@ -16,9 +16,8 @@ export PATH="$PNPM_HOME:$PATH"
 export PATH="$HOME/.scripts:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export GOPATH="$HOME/Documents/Programming/go/pkg/"
 export GPG_TTY="${TTY:-$(tty)}"
-export GOPATH=$HOME/Documents/Programming/go/pkg/
-
 export SUDO_PROMPT="passwd: "
 export TERMINAL="kitty"
 export BROWSER="firefox"
@@ -77,6 +76,14 @@ export FZF_DEFAULT_OPTS="
   --layout=reverse
   --border horizontal
   --height 40"
+
+# ZSH-VI-MODE plugin
+export ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_ZLE
+export ZVM_SYSTEM_CLIPBOARD_ENABLED=true
+export ZVM_CURSOR_STYLE_ENABLED=true
+export KEYTIMEOUT=1
+# Starship taking the power from vi mode
+export STARSHIP_ZLE_RPROMPT_NUM_LINES=1
 
 # Pastel CLI 
 export PASTEL_COLOR_MODE=24bit
