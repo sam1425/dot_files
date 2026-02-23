@@ -1,14 +1,70 @@
 [user]
 	email = sadasipa@gmail.com
 	name = c0mplex
-[merge]
-	conflictStyle = diff3
-[magit]
-	hideCampaign = true
-[alias]
-    tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [init]
 	defaultBranch = main
+[merge]
+    tool = vimdiff
+    conflictStyle = diff3
+[mergetool]
+    prompt = false
+[magit]
+	hideCampaign = true
+[difftool]
+	prompt = false
+[alias]
+    tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	aa = add --all
+	ap = add --patch
+	blaame = blame -w -C -C -C -L
+	br = branch
+	brav = branch -avv
+	brv = branch -vv
+	branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
+	local-branches = "!git branch --format '%(refname:short) %(upstream:short)' | awk '{if (!$2) print $1;}'"
+	ci = commit
+	co = checkout
+	contributors = shortlog -se
+	df = diff
+	history = log --decorate --abbrev-commit --name-status --graph
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	loland = log --graph --all --pretty=format:'%C(yellow bold)%h%Creset (%Cblue%an%Creset)%C(magenta)% ar%Creset%C(green bold)% d%Creset: %s'
+	lolnd = log --graph --pretty=format:'%C(yellow bold)%h%Creset (%Cblue%an%Creset)%C(magenta)% ar%Creset%C(green bold)% d%Creset: %s'
+	lolandd = log --graph --all --pretty=format:'%C(yellow bold)%h%Creset (%Cblue%an%Creset)%C(magenta)% ai%Creset%C(green bold)% d%Creset: %s'
+	lolndd = log --graph --pretty=format:'%C(yellow bold)%h%Creset (%Cblue%an%Creset)%C(magenta)% ai%Creset%C(green bold)% d%Creset: %s'
+	lp = log -p --patience
+	ls = log --pretty=format:'%Cred%h%Creset %C(yellow)%ci%Creset %s - %C(bold blue)%an%Creset'
+	pf = push --force-with-lease
+	pum = pull upstream master
+	slol = log --graph --decorate --pretty=oneline --abbrev-commit --simplify-by-decoration
+	slola = log --graph --decorate --pretty=oneline --abbrev-commit --simplify-by-decoration --all 
+	sloland = log --graph --all --pretty=format:'%C(yellow bold)%h%Creset (%Cblue%an%Creset)%C(magenta)% ar%Creset%C(green bold)% d%Creset: %s' --simplify-by-decoration
+	slolandd = log --graph --all --pretty=format:'%C(yellow bold)%h%Creset (%Cblue%an%Creset)%C(magenta)% ai%Creset%C(green bold)% d%Creset: %s' --simplify-by-decoration
+	slolnd = log --graph --pretty=format:'%C(yellow bold)%h%Creset (%Cblue%an%Creset)%C(magenta)% ar%Creset%C(green bold)% d%Creset: %s' --simplify-by-decoration
+	ss = status -s
+	st = status
+	ru = remote update
+	rup = remote update -p
+[help]
+	autocorrect = 1
+[commit]
+	gpgsign = false
+[pull]
+	rebase = true
+[diff]
+	colormoved = dimmed-zebra
+[rebase]
+	autosquash = true
+	autoStash = true
+[rerere]
+	eanbled = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[push]
+    autoSetupRemote = true
 
 [credential "https://github.com"]
 	helper = 
@@ -16,3 +72,5 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
+[color]
+	ui = auto

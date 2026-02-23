@@ -107,6 +107,12 @@ let g:undolevels = 1000
 let g:highlightedyank_highlight_duration = 100
 highlight HighlightedyankRegion ctermbg=0 guibg=#8ec07c
 
+let g:VM_maps = {}
+let g:VM_maps["Undo"] = 'u'
+let g:VM_maps["Redo"] = '<C-r>'
+nmap <C-k> <Plug>(VM-Add-Cursor-Up)
+nmap <C-j> <Plug>(VM-Add-Cursor-Down)
+
 
 autocmd BufEnter * if &filetype == "go" | setlocal noexpandtab
 autocmd BufNewFile,BufRead ?\+.c3 setf c
@@ -114,8 +120,11 @@ autocmd BufNewFile,BufRead ?\+.c3 setf c
 
 nnoremap ^ &
 nnoremap & ^
+nnoremap Y y$
 nnoremap gf :e <cfile><CR>
+nnoremap <C-b> :term make<CR>
 nnoremap <leader>D a<C-R>=strftime("(%Y%m%d-%H%M%S)")<CR><Esc>
+
 
 if !has('gui_running')
     set ttimeoutlen=10

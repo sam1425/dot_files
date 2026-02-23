@@ -11,6 +11,7 @@ alias lynx='lynx -vikeys'
 alias Prompt='PROMPT="%~ % "'
 alias emacst='emacsclient -a ''"'
 alias emacs="emacsclient -n -a ''"
+alias vimacs="\emacs -nw"
 
 #Useful:
 alias c="printf '\033[2J\033[3J\033[1;1H'"

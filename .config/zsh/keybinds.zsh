@@ -47,7 +47,7 @@ bindkey "^U" backward-kill-line
 bindkey "^a" beginning-of-line
 bindkey "^e" end-of-line
 bindkey "^H" backward-kill-word
-bindkey '^R' fzf-history-widget
+bindkey "^R" fzf-history-widget
 
 #bindkey "^?" backward-delete-char
 #bindkey "^H" backward-delete-char

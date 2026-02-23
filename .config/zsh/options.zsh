@@ -7,6 +7,7 @@ zmodload zsh/zle
 zmodload zsh/zpty
 zmodload zsh/complist
 
+autoload -U select-word-style && select-word-style bash
 autoload _vi_search_fix
 autoload -Uz colors
 autoload -U compinit
@@ -28,6 +29,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 zstyle ':fzf-tab:*' switch-group ',' '.'
 ## case insensitive path-completion
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+
 
 # fix becaue compinit is very slow
 for dump in ~/.zcompdump(N.mh+24); do
