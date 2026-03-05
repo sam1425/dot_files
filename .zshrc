@@ -20,3 +20,5 @@ keybinds
 EOF
 
 [[ -t 0 ]] && stty -echoctl
+
+

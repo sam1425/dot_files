@@ -55,7 +55,7 @@ set listchars=tab:\ \ ,trail:·
 
 set norelativenumber
 set undofile
-set undodir=~/.vim/tmp/
+set undodir=~/.vim/filebackups/
 
 " =========================
 " Buffer-local options
