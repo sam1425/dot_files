@@ -1,6 +1,7 @@
 
 
-.vim/tmp
+.vim/filebackups
+.vim/filebackups/*
 
 .config/zsh/program-specific
 

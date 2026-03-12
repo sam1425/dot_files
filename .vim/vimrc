@@ -110,9 +110,10 @@ highlight HighlightedyankRegion ctermbg=0 guibg=#8ec07c
 let g:VM_maps = {}
 let g:VM_maps["Undo"] = 'u'
 let g:VM_maps["Redo"] = '<C-r>'
+let g:VM_maps['Exit'] = '<Esc>'
+
 nmap <C-k> <Plug>(VM-Add-Cursor-Up)
 nmap <C-j> <Plug>(VM-Add-Cursor-Down)
-
 
 autocmd BufEnter * if &filetype == "go" | setlocal noexpandtab
 autocmd BufNewFile,BufRead ?\+.c3 setf c
@@ -133,7 +134,5 @@ if !has('gui_running')
     let &t_SR = "\<Esc>[4 q" " Replace
 endif
 
-let g:VM_maps = {}
-let g:VM_maps['Exit'] = '<Esc>'
 
 set fillchars=eob:\ 

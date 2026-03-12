@@ -86,6 +86,10 @@ export KEYTIMEOUT=1
 # Starship taking the power from vi mode
 export STARSHIP_ZLE_RPROMPT_NUM_LINES=1
 
+
+#fix
+export DISABLE_AUTO_TITLE="true"
+
 # Pastel CLI 
 export PASTEL_COLOR_MODE=24bit
 # Fix LS_COLORS being unreadable.
