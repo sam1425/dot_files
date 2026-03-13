@@ -17,6 +17,7 @@ alias vimacs="\emacs -nw"
 alias c="printf '\033[2J\033[3J\033[1;1H'"
 alias q="exit"
 alias open='xdg-open'
+alias find='fd'
 alias grep='grep --color=auto'
 alias cleanram="sudo sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'"
 alias mktar='tar zcvf' # mktar <archive_compress>
