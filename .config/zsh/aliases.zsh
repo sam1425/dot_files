@@ -48,7 +48,8 @@ alias ll="\ls -alFh"
 alias lla="ls -la"
 alias llh="ls -lh"
 alias lt="ls --tree"
-alias cat="bat --color always --plain"
+alias cat="bat --color=always --plain"
+alias bat="bat --color=always"
 alias mv='mv -v'
 alias cp='cp -vr'
 alias rmvr='rm -vr'
