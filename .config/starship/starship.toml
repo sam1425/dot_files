@@ -99,6 +99,8 @@ truncation_symbol = "*/"
 symbol = "ⵖ"
 style = "bg:color_aqua"
 format = '[[ $branch $symbol ](fg:color_fg0 bg:color_blue)]($style)'
+truncation_length = 20
+truncation_symbol = "…"
 
 [git_status]
 style = "bg:color_aqua"
