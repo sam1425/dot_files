@@ -1,8 +1,10 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 add_newline = false
+command_timeout = 200
+scan_timeout = 30
 format = """
 [](color_orange)\
-$os\
+[|](bg:color_orange fg:color_fg0)\
 [ ](fg:color_orange bg:color_bg1)\
 $username\
 $hostname\
@@ -44,7 +46,7 @@ color_red = '#cc241d'
 color_yellow = '#d79921'
 
 [os]
-disabled = false
+disabled = true
 style = "bg:color_orange fg:color_fg0"
 
 [os.symbols]
@@ -91,12 +93,7 @@ truncation_symbol = "*/"
 [directory.substitutions]
 "Documents" = "🗃️"
 "Downloads" = "⇩"
-"Music" = "♪♫"
-"Pictures" = "🖻"
-"PROGRAMMING" = "<code>"
-"c" = "C"
-"Cpp" = "c++"
-"lua" = "LUA"
+"Programming" = "<code>"
 
 [git_branch]
 symbol = "ⵖ"
@@ -106,6 +103,14 @@ format = '[[ $branch $symbol ](fg:color_fg0 bg:color_blue)]($style)'
 [git_status]
 style = "bg:color_aqua"
 format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_blue)]($style)'
+ignore_submodules = true
+untracked = "no"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+modified = "!"
+staged = "+"
+deleted = "✘"
 
 [c]
 symbol = " "
@@ -126,6 +131,7 @@ format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 symbol = ""
 style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+disabled = true
 
 [java]
 symbol = ""
@@ -136,16 +142,17 @@ format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 symbol = ""
 style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+disabled = true
 
 [python]
 symbol = ""
 style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue2)]($style)'
 
-[docker_context]
-symbol = ""
-style = "bg:color_bg3"
-format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
+#[docker_context]
+#symbol = ""
+#style = "bg:color_bg3"
+#format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
 
 [time]
 disabled = false

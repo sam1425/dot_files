@@ -85,7 +85,7 @@ export ZVM_CURSOR_STYLE_ENABLED=true
 export KEYTIMEOUT=1
 # Starship taking the power from vi mode
 export STARSHIP_ZLE_RPROMPT_NUM_LINES=1
-
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
 #fix
 export DISABLE_AUTO_TITLE="true"
