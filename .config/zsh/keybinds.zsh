@@ -2,9 +2,8 @@
 ##   Keybindings   ##
 ## =============== ##
 
-#bindkey -v
 function smart-k-up() {
-    if [[ -n "$POSTDISPLAY" ]]; then
+    if [[ -n "$_zsh_autosuggest_suggestion" ]]; then
         zle autosuggest-accept
     elif [[ -n "${widgets[history-substring-search-up]}" ]]; then
         zle history-substring-search-up
@@ -24,17 +23,18 @@ function smart-j-down() {
 # --- Binds ---
 # Vim plugin keybinds:
 function zvm_after_init() {
-  zvm_define_widget smart-k-up
-  zvm_define_widget smart-j-down
+    zvm_define_widget smart-k-up
+    zvm_define_widget smart-j-down
 
-  zvm_bindkey viins '^K' smart-k-up
-  zvm_bindkey viins '^J' smart-j-down
-  zvm_bindkey vicmd '^K' smart-k-up
-  zvm_bindkey vicmd '^J' smart-j-down
-  zvm_bindkey vicmd 'k' smart-k-up
-  zvm_bindkey vicmd 'j' smart-j-down
-  zvm_bindkey viins '^B' _sudo_command_line
-  zvm_bindkey vicmd '^B' _sudo_command_line
+    zvm_bindkey viins '^K' smart-k-up
+    zvm_bindkey viins '^J' smart-j-down
+    zvm_bindkey vicmd '^K' smart-k-up
+    zvm_bindkey vicmd '^J' smart-j-down
+    zvm_bindkey vicmd 'k' smart-k-up
+    zvm_bindkey vicmd 'j' smart-j-down
+
+    zvm_bindkey viins '^B' _sudo_command_line
+    zvm_bindkey vicmd '^B' _sudo_command_line
 }
 
 # Add text object extension -- eg ci" da(:

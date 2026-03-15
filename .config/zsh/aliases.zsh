@@ -54,6 +54,7 @@ alias bat="bat --color=always"
 alias mv='mv -v'
 alias cp='cp -vr'
 alias rmvr='rm -vr'
+alias xprop='xprop -id $(slop -f "%i" -b 2 -p -2 -c 0.2,0.51,0.45,1 2>/dev/null)'
 #Not so useful: 
 #alias mkgrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 #alias run='pnpm run'
