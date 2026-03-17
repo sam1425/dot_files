@@ -57,6 +57,8 @@ set norelativenumber
 set undofile
 set undodir=~/.vim/filebackups/
 
+set makeprg=just
+
 " =========================
 " Buffer-local options
 " =========================
@@ -123,7 +125,7 @@ nnoremap ^ &
 nnoremap & ^
 nnoremap Y y$
 nnoremap gf :e <cfile><CR>
-nnoremap <C-b> :term make<CR>
+nnoremap <C-b> :term just<CR>
 nnoremap <leader>D a<C-R>=strftime("(%Y%m%d-%H%M%S)")<CR><Esc>
 
 
