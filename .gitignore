@@ -4,5 +4,8 @@
 .vim/filebackups/*
 
 .config/zsh/program-specific
-
+.config/zsh/tmp
 .config/zsh/.zcompdump*
+
+Description.md
+THEME.md
