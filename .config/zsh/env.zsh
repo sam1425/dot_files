@@ -18,6 +18,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/Documents/Programming/go/pkg/bin:$PATH"
 export GOPATH="$HOME/Documents/Programming/go/pkg/"
+export UNISON="$HOME/.config/unison"
 export GPG_TTY="${TTY:-$(tty)}"
 export SUDO_PROMPT="passwd: "
 export TERMINAL="kitty"
@@ -86,7 +87,6 @@ export KEYTIMEOUT=1
 # Starship taking the power from vi mode
 export STARSHIP_ZLE_RPROMPT_NUM_LINES=1
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
-
 #fix
 export DISABLE_AUTO_TITLE="true"
 
